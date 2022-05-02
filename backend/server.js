@@ -1,20 +1,22 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
-dotenv.config()
+var cors = require('cors')
+// const bodyParser = require('body-parser')
 
-var routes = require('./routes/index')
+var users = require('./routes/users')
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors())
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/', users);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening on port ${process.env.PORT}`)
+app.listen(3000, () => {
+  console.log(`Example app listening on port ${3000}`)
 })

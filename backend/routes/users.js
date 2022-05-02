@@ -3,11 +3,12 @@ var express = require("express");
 var router = express.Router();
 
 router.post("/create", function (req, res) {
-  models.User.create({
-    username: req.body.username,
-  }).then(function () {
-    res.redirect("/");
-  });
+  console.log('req', req.body)
+  // models.User.create({
+  //   username: req.body.username,
+  // }).then(function () {
+  //   res.redirect("/");
+  // }).cath;
 });
 
 module.exports = router;
