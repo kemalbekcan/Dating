@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "migrate": "npx sequelize-cli db:migrate --url 'postgres://postgres:root@localhost:5433/dating_db'",
-    "seed": "npx sequelize-cli db:seed:all --url 'postgres://postgres:root@localhost:5433/dating_db'",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
