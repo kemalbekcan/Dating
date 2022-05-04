@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.belongsTo(models.Role);
+      models.Role.hasMany(User);
     }
   }
   User.init(
@@ -24,6 +26,13 @@ module.exports = (sequelize, DataTypes) => {
           isEmail: {
             msg: "Must be a valid email address",
           },
+        },
+      },
+      role_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Roles",
+          key: "role_id",
         },
       },
     },
