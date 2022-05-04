@@ -1,6 +1,6 @@
-# Airbnb-Clone
+# I Lover App
 
-Full-Stack Airbnb Clone
+Full-Stack I Lover App
 
 ## About The Project
 
@@ -34,7 +34,7 @@ This is an example of how to list things you need to use the software and how to
 1. Clone the repo
 
 ```sh
-git clone https://github.com/kemalbekcan/Airbnb-Clone.git
+git clone https://github.com/kemalbekcan/Dating.git
 ```
 
 2. Install NPM & YARN packages
