@@ -2,8 +2,29 @@ var models = require("../models");
 const bcrypt = require("bcrypt");
 var express = require("express");
 const jwt = require("jsonwebtoken");
+const yup = require("yup");
 const { jwtOptions } = require("../config/jwtOptions");
 var router = express.Router();
+
+// const signupSchema = yup.object({
+//   body: yup.object({
+//     firstName: yup.string().min(3).max(10).required(),
+//     lastName: yup.string().min(3).max(10).required(),
+//     email: yup.string().email().min(5).max(30).required(),
+//     password: yup.string().min(8).max(16).required(),
+//   }),
+// });
+
+// const validate = (schema) => async (req, res, next) => {
+//   try {
+//     await schema.validate({
+//       body: req.body,
+//     });
+//     return next();
+//   } catch (err) {
+//     return res.status(500).json({ type: err.name, message: err.message });
+//   }
+// };
 
 router.post("/create", function (req, res) {
   if (!req.body.email) {
@@ -37,6 +58,7 @@ router.post("/login", async function (req, res, next) {
       let payload = { user };
       console.log(jwtOptions.secretOrKey);
       let token = jwt.sign(payload, jwtOptions.secretOrKey);
+      // let refreshToken = await RefreshToken.crea
       return res.status(200).json({ message: "ok", token });
     } else {
       return res.status(403).json({ message: "incorrect password" });
@@ -44,5 +66,8 @@ router.post("/login", async function (req, res, next) {
   });
 });
 
+router.post("/refreshtoken", async function (req, res) {
+  console.log("req", req.body);
+});
 
 module.exports = router;
