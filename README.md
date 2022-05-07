@@ -62,7 +62,7 @@ npm & yarn install
 - Eslint
 - Prettier
 - Webpack
-- Graphql
+- Express
 
 ### Backend
 
@@ -76,8 +76,11 @@ npm & yarn install
 ## Roadmap
 
 - [ ] React Native Configure<br />
-- [ ] Create Test Folder<br />
 - [ ] Backend Configration<br />
+- [x] Login Page<br />
+- [x] Loading Page<br />
+- [x] Auhtentication<br />
+- [ ] Create Test Folder<br />
 
 ## Test
 
