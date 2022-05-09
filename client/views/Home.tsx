@@ -7,6 +7,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import Loading from '../components/Loading';
+import i18n from '../locales';
+
 
 function Home({ tasks }: any) {
   const [loading, setLoading] = useState(true);
@@ -25,7 +27,7 @@ function Home({ tasks }: any) {
           <Image source={require('../assets/logo.png')} />
           <View style={styles.header}>
             <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: '700' }}>
-              Hoş Geldiniz
+              Hoş Geldiniz {i18n.t('welcome')}
             </Text>
             <Text
               style={{
