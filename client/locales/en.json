@@ -1,3 +1,14 @@
 {
-  "welcome": "hello"
+  "Home": {
+    "welcome": "Welcome",
+    "We were waiting for you too": "We were waiting for you too",
+    "continue with facebook": "Continue with facebook",
+    "continue with google": "Continue with google",
+    "continue with email": "Continue with email",
+    "by signing up": "By signing up",
+    "you agree to our General Terms of Use": "you agree to our General Terms of Use",
+    "and": "and",
+    "privacy policy": "Privacy Policy",
+    "I forgot my password": "I forgot my password"
+  }
 }
