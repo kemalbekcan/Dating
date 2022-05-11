@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
 import { StyleSheet, TouchableHighlight, View, Text } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useDispatch } from 'react-redux'
-import { addRoute } from "../../store/routeAction"
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addRoute } from '../../store/routeAction';
 
 interface props {
   title: string;
 }
 
 const IconButton: FC<props> = ({ title }: props) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   function onClick() {
-    dispatch(addRoute('email'))
+    dispatch(addRoute('email'));
   }
   return (
     <TouchableHighlight style={styles.emailButton} onPress={onClick}>

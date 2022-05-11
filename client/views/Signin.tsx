@@ -1,16 +1,64 @@
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import React, { FC } from 'react';
+import { StyleSheet, SafeAreaView, Text, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-function Signin() {
+import PrimaryButton from '../components/Button/PrimaryButton';
+import { Formik } from 'formik';
+import * as yup from 'yup';
+
+interface MyFormValues {
+  email?: any;
+  password?: any;
+}
+
+const loginValidationSchema = yup.object().shape({
+  email: yup.string().email('Please enter valid email').required('Email Address is Required'),
+  password: yup
+    .string()
+    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .required('Password is required'),
+});
+
+const Signin: FC<MyFormValues> = () => {
+  const initialValues: MyFormValues = { email: '', password: '' };
   return (
     <LinearGradient
       colors={['rgba(239, 10, 106, 1)', 'rgba(182, 53, 156, 1)']}
       style={styles.background}>
       <SafeAreaView style={styles.container}>
-        <Text>sad</Text>
+        <Formik
+          validationSchema={loginValidationSchema}
+          initialValues={initialValues}
+          onSubmit={(values) => console.log(values)}>
+          {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
+            <>
+              <TextInput
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+                keyboardType="email-address"
+                placeholder="E-posta"
+              />
+              {errors.email && <Text style={{ fontSize: 10, color: 'red' }}>{errors.email}</Text>}
+
+              <TextInput
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                placeholder="Password"
+                secureTextEntry
+              />
+
+              {errors.password && (
+                <Text style={{ fontSize: 10, color: 'red' }}>{errors.password}</Text>
+              )}
+              <PrimaryButton title="Giriş Yap" validation={!isValid} clicked={handleSubmit} />
+            </>
+          )}
+        </Formik>
       </SafeAreaView>
     </LinearGradient>
   );
-}
+};
 
 const styles = StyleSheet.create({
   background: {
