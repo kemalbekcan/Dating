@@ -3,23 +3,25 @@ import { StyleSheet, TouchableHighlight, View, Text } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch } from 'react-redux';
 import { addRoute } from '../../store/routeAction';
+import { Link } from 'react-router-native';
 
-interface props {
+interface propsI {
   title: string;
 }
 
-const IconButton: FC<props> = ({ title }: props) => {
-  const dispatch = useDispatch();
-  function onClick() {
-    dispatch(addRoute('email'));
-  }
+const IconButton: FC<propsI> = ({ title }: propsI) => {
+  // const dispatch = useDispatch();
+  // function onClick() {
+  //   console.log("clicked")
+  //   dispatch(addRoute('email'));
+  // }
   return (
-    <TouchableHighlight style={styles.emailButton} onPress={onClick}>
+    <Link to="/login" style={styles.emailButton}>
       <View style={styles.iconButton}>
         <MaterialIcons name="email" size={24} color="white" style={{ marginRight: 20 }} />
         <Text style={{ color: '#ffffff', fontWeight: 'bold', textAlign: 'center' }}>{title}</Text>
       </View>
-    </TouchableHighlight>
+    </Link>
   );
 };
 

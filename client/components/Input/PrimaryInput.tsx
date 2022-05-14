@@ -1,4 +1,4 @@
-import { TextInput, Text } from 'react-native';
+import { StyleSheet, TextInput, Text } from 'react-native';
 
 function PrimaryButton(props: any) {
   const {
@@ -10,7 +10,7 @@ function PrimaryButton(props: any) {
   return (
     <>
       <TextInput
-        style={[hasError]}
+        style={[styles.textInput, hasError && styles.errorInput]}
         value={value}
         onChangeText={(text) => onChange(name)(text)}
         onBlur={() => {
@@ -19,9 +19,28 @@ function PrimaryButton(props: any) {
         }}
         {...inputProps}
       />
-      {hasError && <Text>{errors[name]}</Text>}
+      {hasError && <Text style={styles.errorText}>{errors[name]}</Text>}
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  textInput: {
+    height: 40,
+    width: '90%',
+    margin: 10,
+    backgroundColor: 'white',
+    borderColor: 'gray',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 10,
+  },
+  errorText: {
+    fontSize: 10,
+    color: 'red',
+  },
+  errorInput: {
+    borderColor: 'red',
+  },
+});
 
 export default PrimaryButton;

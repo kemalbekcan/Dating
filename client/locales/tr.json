@@ -10,5 +10,12 @@
     "and": "ve",
     "privacy policy": "Gizlilik Politikamızı",
     "I forgot my password": "Şifre mi unuttum"
+  },
+  "Login": {
+    "Sign in": "Giriş yap",
+    "Sign up": "Üye ol",
+    "Please enter valid email": "Lütfen geçerli bir e-posta girin",
+    "Email is required": "Email gereklidir",
+    "Password is required": "Şifre gereklidir"
   }
 }

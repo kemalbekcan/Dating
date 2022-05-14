@@ -10,5 +10,14 @@
     "and": "and",
     "privacy policy": "Privacy Policy",
     "I forgot my password": "I forgot my password"
+  },
+  "Login": {
+    "Login": {
+      "Sign in": "Sign in",
+      "Sign up": "Sign up",
+      "Please enter valid email": "Please enter valid email",
+      "Email is required": "Email is required",
+      "Password is required": "Password is required"
+    }
   }
 }
