@@ -1,10 +1,11 @@
 {
   "Home": {
     "welcome": "Hoş Geldiniz",
-    "We were waiting for you too": "Biz de seni bekliyorduk",
+    "Sign up to continue": "Devam etmek için kaydolun",
     "continue with facebook": "Facebook ile devam et",
     "continue with google": "Google ile devam et",
     "continue with email": "Email ile devam et",
+    "use phone number": "Telefon numarasını kullan",
     "by signing up": "Kaydolarak",
     "you agree to our General Terms of Use": "Genel Kullanım Koşullarımızı",
     "and": "ve",

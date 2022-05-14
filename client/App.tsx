@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Landing from './views/Landing';
 import Home from './views/Home';
 import Login from './views/Login';
 import { Provider } from 'react-redux';
@@ -11,6 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <NativeRouter>
           <Routes>
+            {/* <Route path="/" element={<Landing />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
           </Routes>

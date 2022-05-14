@@ -1,10 +1,11 @@
 {
   "Home": {
     "welcome": "Welcome",
-    "We were waiting for you too": "We were waiting for you too",
+    "Sign up to continue": "Sign up to continue",
     "continue with facebook": "Continue with facebook",
     "continue with google": "Continue with google",
     "continue with email": "Continue with email",
+    "use phone number": "Use phone number",
     "by signing up": "By signing up",
     "you agree to our General Terms of Use": "you agree to our General Terms of Use",
     "and": "and",
