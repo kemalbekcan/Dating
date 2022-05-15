@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { StyleSheet, SafeAreaView, Text, TextInput } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import PrimaryButton from '../components/Button/PrimaryButton';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -21,42 +20,38 @@ const loginValidationSchema = yup.object().shape({
 const Signin: FC<MyFormValues> = () => {
   const initialValues: MyFormValues = { email: '', password: '' };
   return (
-    <LinearGradient
-      colors={['rgba(239, 10, 106, 1)', 'rgba(182, 53, 156, 1)']}
-      style={styles.background}>
-      <SafeAreaView style={styles.container}>
-        <Formik
-          validationSchema={loginValidationSchema}
-          initialValues={initialValues}
-          onSubmit={(values) => console.log(values)}>
-          {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
-            <>
-              <TextInput
-                onChangeText={handleChange('email')}
-                onBlur={handleBlur('email')}
-                value={values.email}
-                keyboardType="email-address"
-                placeholder="E-posta"
-              />
-              {errors.email && <Text style={{ fontSize: 10, color: 'red' }}>{errors.email}</Text>}
+    <SafeAreaView style={styles.container}>
+      <Formik
+        validationSchema={loginValidationSchema}
+        initialValues={initialValues}
+        onSubmit={(values) => console.log(values)}>
+        {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
+          <>
+            <TextInput
+              onChangeText={handleChange('email')}
+              onBlur={handleBlur('email')}
+              value={values.email}
+              keyboardType="email-address"
+              placeholder="E-posta"
+            />
+            {errors.email && <Text style={{ fontSize: 10, color: 'red' }}>{errors.email}</Text>}
 
-              <TextInput
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
-                value={values.password}
-                placeholder="Password"
-                secureTextEntry
-              />
+            <TextInput
+              onChangeText={handleChange('password')}
+              onBlur={handleBlur('password')}
+              value={values.password}
+              placeholder="Password"
+              secureTextEntry
+            />
 
-              {errors.password && (
-                <Text style={{ fontSize: 10, color: 'red' }}>{errors.password}</Text>
-              )}
-              <PrimaryButton title="Giriş Yap" validation={!isValid} clicked={handleSubmit} />
-            </>
-          )}
-        </Formik>
-      </SafeAreaView>
-    </LinearGradient>
+            {errors.password && (
+              <Text style={{ fontSize: 10, color: 'red' }}>{errors.password}</Text>
+            )}
+            <PrimaryButton title="Giriş Yap" validation={!isValid} clicked={handleSubmit} />
+          </>
+        )}
+      </Formik>
+    </SafeAreaView>
   );
 };
 

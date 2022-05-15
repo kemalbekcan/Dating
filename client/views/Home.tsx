@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Divider from '../components/Divider/Divider';
 import IconBox from '../components/Box/IconBox';
 import { AntDesign } from '@expo/vector-icons';

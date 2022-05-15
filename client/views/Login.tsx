@@ -44,7 +44,6 @@ function Login() {
               placeholder="Password"
               secureTextEntry
             />
-            <Text>{isValid}</Text>
             <PrimaryButton
               clicked={handleSubmit}
               validation={!isValid}
@@ -58,9 +57,6 @@ function Login() {
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     alignItems: 'center',
