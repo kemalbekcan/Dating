@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Entypo } from '@expo/vector-icons';
+import Divider from '../components/Divider/Divider';
+import IconBox from '../components/Box/IconBox';
 import { AntDesign } from '@expo/vector-icons';
 import IconButton from '../components/Button/IconButton';
 import i18n from '../locales';
@@ -9,55 +9,52 @@ import { connect } from 'react-redux';
 import Logo from '../assets/Logo.svg';
 import PrimaryButton from '../components/Button/PrimaryButton';
 import { useNavigate } from 'react-router-native';
+import { useFonts } from 'expo-font';
 
 function Home({ tasks, router }: any) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  let [fontsLoaded] = useFonts({
+    'Basic-Regular': require('../assets/fonts/Basic-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   function onPress() {
-    navigate("/login")
+    navigate('/login');
   }
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Image source={require('../assets/logo.png')} /> */}
-      <Logo />
       <View style={styles.header}>
-        <Text style={{ color: 'black', textAlign: 'center', fontSize: 20, fontWeight: '700' }}>
-          {i18n.t('Home.Sign up to continue')}.
-        </Text>
+        <Logo />
       </View>
-      <PrimaryButton clicked={onPress} type={'Primary'} title={i18n.t('Home.continue with email')} />
-      <PrimaryButton clicked={onPress} type={'Secondary'} title={i18n.t('Home.use phone number')} />
-      <PrimaryButton clicked={onPress} type={'Standart'} title={"Standart"} />
-      {/* <PrimaryButton title={i18n.t('Home.continue with email')} /> */}
-      {/* <View style={styles.facebookButton}>
-        <Entypo name="facebook-with-circle" size={24} color="white" style={{ marginRight: 20 }} />
-        <Text style={{ color: '#FFFFFF', fontWeight: 'bold', textAlign: 'center' }}>
-          Facebook ile devam et
-        </Text>
+      <View style={styles.actions}>
+        <Text style={styles.description}>{i18n.t('Home.Sign up to continue')}.</Text>
+        <PrimaryButton
+          clicked={onPress}
+          type={'Primary'}
+          title={i18n.t('Home.continue with email')}
+        />
+        <PrimaryButton
+          clicked={onPress}
+          type={'Secondary'}
+          title={i18n.t('Home.use phone number')}
+        />
       </View>
-      <View style={styles.googleButton}>
-        <AntDesign name="google" size={24} color="black" style={{ marginRight: 20 }} />
-        <Text style={{ color: '#000000', fontWeight: 'bold', textAlign: 'center' }}>
-          Google ile devam et
-        </Text>
-      </View> */}
-      <IconButton title={i18n.t('Home.continue with email')} />
-      <View style={styles.privacyPolicy}>
-        <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>
-          {i18n.t('Home.by signing up')},{' '}
-          <Text style={styles.textUnderline}>
-            {i18n.t('Home.you agree to our General Terms of Use')}
-          </Text>{' '}
-          {i18n.t('Home.and')}
-        </Text>
-        <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>
-          <Text style={styles.textUnderline}>{i18n.t('Home.privacy policy')}</Text> kabul etmiş
-          olursunuz.
-        </Text>
-      </View>
-      <View style={styles.forgotPassword}>
-        <Text style={{ color: 'white', fontSize: 12, fontWeight: '700' }}>
-          {i18n.t('Home.I forgot my password')} ?
-        </Text>
+      <Divider description={i18n.t('Home.or sign up with')} />
+      <View style={styles.bottom}>
+        <View style={styles.iconSignupButtons}>
+          <IconBox brand="facebook" />
+          <IconBox brand="google" />
+          <IconBox brand="apple" />
+        </View>
+        <View style={styles.privacyPolicy}>
+          <Text style={{ fontFamily: 'Basic-Regular', fontSize: 12 }}>Terms of use</Text>
+          <Text style={{ fontFamily: 'Basic-Regular', fontSize: 12, marginLeft: 35 }}>
+            Privacy Policy
+          </Text>
+        </View>
       </View>
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -65,76 +62,55 @@ function Home({ tasks, router }: any) {
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-  },
   container: {
+    width: '80%',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    flexDirection: 'column',
   },
   header: {
-    marginTop: 50,
-    marginBottom: 150,
-  },
-  facebookButton: {
-    backgroundColor: '#3040D0',
-    height: 45,
-    width: '72%',
-    borderRadius: 100,
-    borderWidth: 1,
-    borderColor: '#3040D0',
+    flex: 1,
     display: 'flex',
-    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  actions: {
+    flex: 1,
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 12,
   },
-  googleButton: {
-    backgroundColor: '#FFFFFF',
-    height: 45,
-    width: '72%',
-    borderRadius: 100,
-    borderWidth: 1,
-    borderColor: '#FFFFFF',
+  description: {
+    fontFamily: 'Basic-Regular',
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '400',
+    marginBottom: 32,
+  },
+  bottom: {
+    flex: 1,
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 12,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
-  emailButton: {
-    backgroundColor: '#000000',
-    height: 45,
-    width: '72%',
-    borderRadius: 100,
-    borderWidth: 1,
-    borderColor: '#000000',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 12,
-  },
-  textUnderline: {
-    textDecorationLine: 'underline',
-    textDecorationStyle: 'solid',
-    textDecorationColor: '#000',
-  },
-  privacyPolicy: {
-    marginTop: 20,
-  },
-  forgotPassword: {
-    marginTop: 105,
-  },
-  iconButton: {
-    width: '100%',
+  iconSignupButtons: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingLeft: '10%',
-    paddingRight: '25%',
+    marginTop: 24,
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
+  privacyPolicy: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '61%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 14,
   },
 });
 

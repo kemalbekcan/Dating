@@ -1,7 +1,16 @@
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 import { Link } from 'react-router-native';
+import { useFonts } from 'expo-font';
 
 function PrimaryButton({ title, clicked, validation, type }: any) {
+  let [fontsLoaded] = useFonts({
+    'Modernist-Bold': require('../../assets/fonts/Sk-Modernist-Bold.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   function typeButton() {
     if (type === 'Primary') {
       return (
@@ -9,7 +18,15 @@ function PrimaryButton({ title, clicked, validation, type }: any) {
           <Link to="/login" style={styles.primaryButton}>
             <TouchableHighlight onPress={() => clicked()}>
               <View>
-                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>{title}</Text>
+                <Text
+                  style={{
+                    fontFamily: 'Modernist-Bold',
+                    fontSize: 16,
+                    color: '#ffffff',
+                    fontWeight: 'bold',
+                  }}>
+                  {title}
+                </Text>
               </View>
             </TouchableHighlight>
           </Link>
@@ -19,7 +36,14 @@ function PrimaryButton({ title, clicked, validation, type }: any) {
       return (
         <Link to="/login" style={styles.secondaryButton}>
           <TouchableHighlight onPress={() => clicked()}>
-            <Text style={{ color: '#000000', fontWeight: 'bold', textAlign: 'center' }}>
+            <Text
+              style={{
+                fontFamily: 'Modernist-Bold',
+                fontSize: 16,
+                color: '#000000',
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}>
               {title}
             </Text>
           </TouchableHighlight>
@@ -54,7 +78,7 @@ const styles = StyleSheet.create({
   primaryButton: {
     backgroundColor: '#EF0A6A',
     height: 56,
-    width: '78%',
+    width: '100%',
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#EF0A6A',
@@ -67,7 +91,7 @@ const styles = StyleSheet.create({
   secondaryButton: {
     backgroundColor: '#FFFFFF',
     height: 56,
-    width: '78%',
+    width: '100%',
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#C4C4C4',
@@ -75,6 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 20,
   },
 });
 
