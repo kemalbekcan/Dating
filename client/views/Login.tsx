@@ -1,4 +1,5 @@
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import React, { FC } from 'react';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import PrimaryInput from '../components/Input/PrimaryInput';
 import { Formik, Field } from 'formik';
 import PrimaryButton from '../components/Button/PrimaryButton';
@@ -12,40 +13,43 @@ const signUpValidationSchema = yup.object().shape({
     .required(i18n.t('Login.Email is required')),
   password: yup
     .string()
-    .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-    .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
     .matches(/\d/, 'Password must have a number')
-    .matches(/[!@#$%^&*()\-_"=+{}; :,<.>]/, 'Password must have a special character')
     .min(8, ({ min }) => `Password must be at least ${min} characters`)
     .required(i18n.t('Login.Password is required')),
 });
 
-function Login() {
+interface MyFormValues {
+  email: string;
+  password: string;
+}
+
+const Login: FC<null> = () => {
+  const initialValues: MyFormValues = { email: '', password: '' };
   return (
     <SafeAreaView style={styles.container}>
       <Formik
         validationSchema={signUpValidationSchema}
-        initialValues={{
-          email: '',
-          password: '',
-        }}
+        initialValues={initialValues}
         onSubmit={(values) => console.log(values)}>
         {({ handleSubmit, isValid }) => (
           <>
             <Field
               component={PrimaryInput}
+              label="Email"
               name="email"
               placeholder="Email Address"
               keyboardType="email-address"
             />
             <Field
               component={PrimaryInput}
+              label="Password"
               name="password"
               placeholder="Password"
               secureTextEntry
             />
             <PrimaryButton
               clicked={handleSubmit}
+              type="Primary"
               validation={!isValid}
               title={i18n.t('Login.Sign in')}
             />
@@ -54,7 +58,7 @@ function Login() {
       </Formik>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

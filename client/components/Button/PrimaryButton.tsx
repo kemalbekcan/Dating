@@ -2,7 +2,15 @@ import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 import { Link } from 'react-router-native';
 import { useFonts } from 'expo-font';
 
-function PrimaryButton({ title, clicked, validation, type }: any) {
+interface PropsI {
+  title?: string;
+  clicked?: any;
+  validation?: any;
+  type?: any;
+  customCss?: any;
+}
+
+const PrimaryButton: React.FC<PropsI> = ({ title, clicked, validation, type, customCss }) => {
   let [fontsLoaded] = useFonts({
     'Modernist-Bold': require('../../assets/fonts/Sk-Modernist-Bold.otf'),
   });
@@ -15,21 +23,22 @@ function PrimaryButton({ title, clicked, validation, type }: any) {
     if (type === 'Primary') {
       return (
         <>
-          <Link to="/login" style={styles.primaryButton}>
-            <TouchableHighlight onPress={() => clicked()}>
-              <View>
-                <Text
-                  style={{
-                    fontFamily: 'Modernist-Bold',
-                    fontSize: 16,
-                    color: '#ffffff',
-                    fontWeight: 'bold',
-                  }}>
-                  {title}
-                </Text>
-              </View>
-            </TouchableHighlight>
-          </Link>
+          <TouchableHighlight
+            style={[styles.primaryButton, customCss && customCss]}
+            disabled={validation}
+            onPress={() => clicked()}>
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'Modernist-Bold',
+                  fontSize: 16,
+                  color: '#ffffff',
+                  fontWeight: 'bold',
+                }}>
+                {title}
+              </Text>
+            </View>
+          </TouchableHighlight>
         </>
       );
     } else if (type === 'Secondary') {
@@ -62,7 +71,7 @@ function PrimaryButton({ title, clicked, validation, type }: any) {
     }
   }
   return <>{type && typeButton()}</>;
-}
+};
 
 const styles = StyleSheet.create({
   container: {
