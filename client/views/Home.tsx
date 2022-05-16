@@ -2,8 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Divider from '../components/Divider/Divider';
 import IconBox from '../components/Box/IconBox';
-import { AntDesign } from '@expo/vector-icons';
-import IconButton from '../components/Button/IconButton';
 import i18n from '../locales';
 import { connect } from 'react-redux';
 import Logo from '../assets/Logo.svg';

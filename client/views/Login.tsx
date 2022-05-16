@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import PrimaryInput from '../components/Input/PrimaryInput';
 import { Formik, Field } from 'formik';
 import PrimaryButton from '../components/Button/PrimaryButton';
+import Logo from '../assets/Logo.svg';
 import i18n from '../locales';
 import * as yup from 'yup';
 
@@ -27,6 +28,7 @@ const Login: FC<null> = () => {
   const initialValues: MyFormValues = { email: '', password: '' };
   return (
     <SafeAreaView style={styles.container}>
+      <Logo />
       <Formik
         validationSchema={signUpValidationSchema}
         initialValues={initialValues}

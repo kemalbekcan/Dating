@@ -1,7 +1,15 @@
+import React, { FC } from 'react';
 import { StyleSheet, TextInput, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 
-function PrimaryInput(props: any) {
+interface PropsI {
+  field?: any;
+  form?: any;
+  props?: any;
+  label?: string;
+}
+
+const PrimaryInput: FC<PropsI> = (props) => {
   let [fontsLoaded] = useFonts({
     'Modernist-Regular': require('../../assets/fonts/Sk-Modernist-Regular.otf'),
   });
@@ -15,6 +23,7 @@ function PrimaryInput(props: any) {
     ...inputProps
   } = props;
   const hasError = errors[name] && touched[name];
+
   return (
     <>
       <View style={styles.button}>
@@ -35,7 +44,7 @@ function PrimaryInput(props: any) {
       </View>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   button: {
