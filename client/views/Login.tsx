@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import PrimaryInput from '../components/Input/PrimaryInput';
 import { Formik, Field } from 'formik';
 import PrimaryButton from '../components/Button/PrimaryButton';
+import Divider from '../components/Divider/Divider';
+import IconBox from '../components/Box/IconBox';
+import RadioButton from '../components/Button/RadioButton';
 import Logo from '../assets/Logo.svg';
 import i18n from '../locales';
 import * as yup from 'yup';
@@ -58,6 +61,13 @@ const Login: FC<null> = () => {
           </>
         )}
       </Formik>
+      <RadioButton />
+      <Divider description={i18n.t('Home.or sign up with')} />
+      <View style={styles.iconSignupButtons}>
+        <IconBox brand="facebook" />
+        <IconBox brand="google" />
+        <IconBox brand="apple" />
+      </View>
     </SafeAreaView>
   );
 };
@@ -67,6 +77,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  iconSignupButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 24,
+    paddingLeft: 40,
+    paddingRight: 40,
   },
 });
 
