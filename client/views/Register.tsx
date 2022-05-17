@@ -29,11 +29,11 @@ interface MyFormValues {
   password: string;
 }
 
-const Login: FC<any> = () => {
+const Register: FC<any> = () => {
   const navigate = useNavigate();
   const initialValues: MyFormValues = { email: '', password: '' };
   function onPress() {
-    navigate('/register');
+    navigate('/login');
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -74,7 +74,7 @@ const Login: FC<any> = () => {
                 clicked={onPress}
                 title={'Don’t have an account?'}
                 color={'red'}
-                coloredText={'Sign Up'}
+                coloredText={'Login In'}
               />
             </>
           )}
@@ -146,4 +146,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;

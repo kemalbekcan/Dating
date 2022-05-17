@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: '#EF0A6A',
-    height: 56,
+    height: 58,
     width: '100%',
     borderRadius: 15,
     borderWidth: 1,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   secondaryButton: {
     backgroundColor: '#FFFFFF',
-    height: 56,
+    height: 58,
     width: '100%',
     borderRadius: 15,
     borderWidth: 1,

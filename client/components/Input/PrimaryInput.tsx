@@ -40,7 +40,7 @@ const PrimaryInput: FC<PropsI> = (props) => {
           }}
           {...inputProps}
         />
-        {hasError && <Text style={styles.errorText}>{errors[name]}</Text>}
+        {hasError && <Text style={styles.errorTextDescriptons}>{errors[name]}</Text>}
       </View>
     </>
   );
@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     elevation: 1,
     shadowColor: 'white',
     position: 'absolute',
-    top: 0,
+    top: -10,
     left: 28,
   },
   textInput: {
     fontFamily: 'Modernist-Regular',
     height: 67,
-    width: '90%',
-    margin: 10,
+    width: '100%',
+    marginBottom: 23,
     backgroundColor: 'white',
     borderColor: 'gray',
     borderWidth: StyleSheet.hairlineWidth,
@@ -78,8 +78,15 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   errorText: {
+    fontSize: 15,
+    color: 'red',
+  },
+  errorTextDescriptons: {
     fontSize: 10,
     color: 'red',
+    marginTop: -12,
+    marginBottom: 12,
+    marginLeft: 5
   },
   errorInput: {
     borderColor: 'red',

@@ -1,4 +1,9 @@
 {
+  "components": {
+    "Remember Me" : "Remember Me",
+    "Email": "Email",
+    "Password": "Password"
+  },
   "Home": {
     "welcome": "Welcome",
     "Sign up to continue": "Sign up to continue",

@@ -1,4 +1,9 @@
 {
+  "components": {
+    "Remember Me" : "Beni Hatırla",
+    "Email": "E-posta",
+    "Password": "Parola"
+  },
   "Home": {
     "welcome": "Hoş Geldiniz",
     "Sign up to continue": "Devam etmek için kaydolun",
