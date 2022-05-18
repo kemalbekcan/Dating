@@ -58,7 +58,6 @@ npm & yarn install
 - Redux
 - Jest
 - React test library
-- Sass
 - Eslint
 - Prettier
 - Webpack
@@ -75,15 +74,25 @@ npm & yarn install
 
 ## Roadmap
 
-- [ ] React Native Configure<br />
+- [x] React Native Configure<br />
 - [ ] Backend Configration<br />
 - [x] Login Page<br />
+- [x] Register Page<br />
 - [x] Loading Page<br />
 - [x] Auhtentication<br />
-- [ ] Create Test Folder<br />
+- [] Settings Page<br />
+- [] Profile Page<br />
+- [] Match Page<br />
+- [] Message Page<br />
+- [] Forgot Password Page<br />
+- [] Facebook Login<br />
+- [] Google Login<br />
+- [] Google Maps<br />
 
 ## Test
 
+- [ ] Completed Login component test<br />
+- [ ] Completed Register component test<br />
 - [ ] Completed Header component test<br />
 - [ ] Completed Cookiebar component test<br />
 - [ ] Completed Main component test <br />
