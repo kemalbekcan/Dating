@@ -80,23 +80,21 @@ npm & yarn install
 - [x] Register Page<br />
 - [x] Loading Page<br />
 - [x] Auhtentication<br />
-- [] Settings Page<br />
-- [] Profile Page<br />
-- [] Match Page<br />
-- [] Message Page<br />
-- [] Forgot Password Page<br />
-- [] Facebook Login<br />
-- [] Google Login<br />
-- [] Google Maps<br />
+- [ ] Settings Page<br />
+- [ ] Profile Page<br />
+- [ ] Match Page<br />
+- [ ] Message Page<br />
+- [ ] Forgot Password Page<br />
+- [ ] Facebook Login<br />
+- [ ] Google Login<br />
+- [ ] Google Maps<br />
 
 ## Test
 
+- [ ] Completed Home component test<br />
 - [ ] Completed Login component test<br />
 - [ ] Completed Register component test<br />
 - [ ] Completed Header component test<br />
-- [ ] Completed Cookiebar component test<br />
-- [ ] Completed Main component test <br />
-- [ ] Completed Footer component test<br />
 
 ## License
 
