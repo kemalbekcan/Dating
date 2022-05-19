@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: 'postgres'
+    ports:
+    - 5432
+
+  ilover-backend:
+  image: 'ilover-backend'
+  build:
+    contest: backend
+    dockerfile: dev.Dockerfile
+  expose:
+  - 3000
+  volumes:
+  - ./backend/src:/app/src
