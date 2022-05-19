@@ -1,15 +1,30 @@
-version: '3'
+version: '3.1'
 services:
   server:
     build: .
     ports:
       - '3000:3000'
-  postgres:
-    image: postgres:latest
+    volumes: 
+      - /app/node_modules
+      - .:/app
     environment:
-      POSTGRES_PASSWORD: '123456'
-      POSTGRES_USER: 'docker'
-    ports:
-      - '5432:5432'
-    volumes:
-      - ./sql/setup.sql:/docker-entrypoint-initdb.d/init.sql
+      - External_Port=3000
+      - PGDATABASE=docker
+      - PGUSER=docker
+      - PGPASSWORD=123456
+      - PGHOST=postgres
+    depends_on:
+      - postgres
+    tty: true
+    restart: always
+  postgres:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=docker
+    ports: 
+      - 5432:5432
+    extra_hosts:
+      - "host.docker.internal:127.0.0.1"
