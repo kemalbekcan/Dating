@@ -74,6 +74,7 @@ npm & yarn install
 
 ## Roadmap
 
+- [x] Dockerizing Nodejs
 - [x] React Native Configure<br />
 - [ ] Backend Configration<br />
 - [x] Login Page<br />
