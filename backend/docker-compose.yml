@@ -1,7 +1,9 @@
-version: '3.1'
+version: '3.8'
 services:
   server:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '3000:3000'
     volumes: 
@@ -15,7 +17,6 @@ services:
       - PGHOST=postgres
     depends_on:
       - postgres
-    tty: true
     restart: always
   postgres:
     image: postgres:14
