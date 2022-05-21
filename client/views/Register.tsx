@@ -8,7 +8,9 @@ import IconBox from '../components/Box/IconBox';
 import RadioButton from '../components/Button/RadioButton';
 import BasicButton from '../components/Button/BasicButton';
 import Logo from '../assets/Logo.svg';
-import { Navigate, useNavigate } from 'react-router-native';
+import { connect } from 'react-redux';
+import { addUser } from '../store/userAction';
+import { useNavigate } from 'react-router-native';
 import i18n from '../locales';
 import * as yup from 'yup';
 
@@ -29,11 +31,18 @@ interface MyFormValues {
   password: string;
 }
 
-const Register: FC<any> = () => {
+const Register: FC<any> = ({ addUser }) => {
   const navigate = useNavigate();
   const initialValues: MyFormValues = { email: '', password: '' };
   function onPress() {
     navigate('/login');
+  }
+  function signUp(e: any) {
+    console.log('testData', e);
+    const user = {
+      name: 'kemal',
+    };
+    addUser(user);
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -45,7 +54,7 @@ const Register: FC<any> = () => {
           validationSchema={signUpValidationSchema}
           initialValues={initialValues}
           onSubmit={(values) => console.log(values)}>
-          {({ handleSubmit, isValid }) => (
+          {({ handleSubmit, isValid, values }) => (
             <>
               <Field
                 component={PrimaryInput}
@@ -64,7 +73,7 @@ const Register: FC<any> = () => {
               <RadioButton />
               <PrimaryButton
                 customCss={styles.login}
-                clicked={handleSubmit}
+                clicked={() => signUp(values)}
                 type="Primary"
                 validation={!isValid}
                 title={i18n.t('Login.Sign in')}
@@ -146,4 +155,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Register;
+function mapStateToProps(state: any) {
+  return {
+    tasks: state.task.tasks,
+    router: state.route.router,
+  };
+}
+
+export default connect(mapStateToProps, { addUser })(Register);
