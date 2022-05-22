@@ -1,13 +1,14 @@
 import { ADD_USER } from './taskTypes';
 const initialState = {
-  user: {},
+  currentUser: {},
 };
 const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_USER:
+      console.log('user', action)
       return {
         ...state,
-        user: action.payload,
+        currentUser: action.payload,
       };
     default:
       return state;

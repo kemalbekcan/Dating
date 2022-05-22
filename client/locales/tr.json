@@ -2,7 +2,9 @@
   "components": {
     "Remember Me" : "Beni Hatırla",
     "Email": "E-posta",
-    "Password": "Parola"
+    "Password": "Parola",
+    "First Name": "Ad",
+    "Last Name": "Soyad"
   },
   "Home": {
     "welcome": "Hoş Geldiniz",
@@ -24,5 +26,9 @@
     "Please enter valid email": "Lütfen geçerli bir e-posta girin",
     "Email is required": "Email gereklidir",
     "Password is required": "Şifre gereklidir"
+  },
+  "Common": {
+    "First Name is required": "Ad gereklidir",
+    "Last Name is required": "Soyad gereklidir"
   }
 }

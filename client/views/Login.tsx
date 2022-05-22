@@ -8,7 +8,7 @@ import IconBox from '../components/Box/IconBox';
 import RadioButton from '../components/Button/RadioButton';
 import BasicButton from '../components/Button/BasicButton';
 import Logo from '../assets/Logo.svg';
-import { Navigate, useNavigate } from 'react-router-native';
+import { useNavigate } from 'react-router-native';
 import i18n from '../locales';
 import * as yup from 'yup';
 

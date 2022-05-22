@@ -2,7 +2,9 @@
   "components": {
     "Remember Me" : "Remember Me",
     "Email": "Email",
-    "Password": "Password"
+    "Password": "Password",
+    "First Name": "First Name",
+    "Last Name": "Last Name"
   },
   "Home": {
     "welcome": "Welcome",
@@ -26,5 +28,9 @@
       "Email is required": "Email is required",
       "Password is required": "Password is required"
     }
+  },
+  "Common": {
+    "First Name is required": "First Name is required",
+    "Last Name is required": "Last Name is required"
   }
 }

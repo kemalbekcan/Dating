@@ -38,11 +38,8 @@ const Register: FC<any> = ({ addUser }) => {
     navigate('/login');
   }
   function signUp(e: any) {
-    console.log('testData', e);
-    const user = {
-      name: 'kemal',
-    };
-    addUser(user);
+    addUser(e);
+    navigate('/profile-details');
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -76,7 +73,7 @@ const Register: FC<any> = ({ addUser }) => {
                 clicked={() => signUp(values)}
                 type="Primary"
                 validation={!isValid}
-                title={i18n.t('Login.Sign in')}
+                title={i18n.t('Login.Sign up')}
               />
               <BasicButton
                 customCss={styles.text}
