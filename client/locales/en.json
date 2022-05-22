@@ -4,7 +4,8 @@
     "Email": "Email",
     "Password": "Password",
     "First Name": "First Name",
-    "Last Name": "Last Name"
+    "Last Name": "Last Name",
+    "Continue": "Continue"
   },
   "Home": {
     "welcome": "Welcome",

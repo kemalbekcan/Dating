@@ -4,7 +4,8 @@
     "Email": "E-posta",
     "Password": "Parola",
     "First Name": "Ad",
-    "Last Name": "Soyad"
+    "Last Name": "Soyad",
+    "Continue": "Devam Et"
   },
   "Home": {
     "welcome": "Hoş Geldiniz",

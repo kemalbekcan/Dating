@@ -2,29 +2,37 @@ import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import PrimaryInput from '../components/Input/PrimaryInput';
 import PrimaryButton from '../components/Button/PrimaryButton';
 import SelectInput from '../components/Input/SelectInput';
+import DatePickerButton from '../components/Button/DatePickerButton';
 import { Formik, Field } from 'formik';
+import { useNavigate } from 'react-router-native';
 import * as yup from 'yup';
 import i18n from '../locales';
 
-const signUpValidationSchema = yup.object().shape({
+const profileSettingsValidationSchema = yup.object().shape({
   firstName: yup
     .string()
-    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .min(3, ({ min }) => `Password must be at least ${min} characters`)
     .required(i18n.t('Common.First Name is required')),
   lastName: yup
     .string()
-    .matches(/\d/, 'Password must have a number')
-    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .min(3, ({ min }) => `Password must be at least ${min} characters`)
     .required(i18n.t('Common.First Name is required')),
+  gender: yup.string().required(i18n.t('Common.First Name is required')),
 });
 
 interface MyFormValues {
   firstName: string;
   lastName: string;
+  gender: string;
 }
 
 function ProfileDetails() {
-  const initialValues: MyFormValues = { firstName: '', lastName: '' };
+  const navigate = useNavigate();
+  const initialValues: MyFormValues = { firstName: '', lastName: '', gender: 'erkek' };
+  function nextUserProfileSettings(e: any) {
+    console.log('e', e);
+    // navigate('/profile-country');
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -32,10 +40,10 @@ function ProfileDetails() {
       </View>
       <View>
         <Formik
-          validationSchema={signUpValidationSchema}
+          validationSchema={profileSettingsValidationSchema}
           initialValues={initialValues}
           onSubmit={(values) => console.log(values)}>
-          {({ handleSubmit, isValid }) => (
+          {({ handleSubmit, isValid, values }) => (
             <>
               <Field
                 component={PrimaryInput}
@@ -50,18 +58,18 @@ function ProfileDetails() {
                 placeholder="Last Name"
                 secureTextEntry
               />
-              <Field
-                component={SelectInput}
-                label={i18n.t('components.Last Name')}
-                name="lastName"
-                placeholder="Last Name"
+              <Field component={SelectInput} label={i18n.t('components.Last Name')} name="gender" />
+              <DatePickerButton />
+              <PrimaryButton
+                customCss={styles.login}
+                clicked={() => nextUserProfileSettings(values)}
+                type="Primary"
+                validation={!isValid}
+                title={i18n.t('components.Continue')}
               />
             </>
           )}
         </Formik>
-      </View>
-      <View>
-        {/* <PrimaryButton type="Primary" title="Continue" /> */}
       </View>
     </SafeAreaView>
   );
@@ -74,6 +82,9 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
     flexDirection: 'column',
+  },
+  login: {
+    marginTop: 23,
   },
 });
 

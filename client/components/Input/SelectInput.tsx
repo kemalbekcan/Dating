@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Modernist-Regular',
     height: 67,
     width: '100%',
-    marginBottom: 100,
+    marginBottom: 23,
     backgroundColor: 'white',
     borderColor: 'gray',
     borderWidth: StyleSheet.hairlineWidth,
